@@ -3,13 +3,14 @@ function clone_or_pull {
   dir=$2
   conf=$3
   src=$4
-  if [ -d "$dir" ]; then
-    git clone --recursive "git@github.com:pghalliday-dotfiles/$repo.git" "$dir"
-    echo "source \"~/$dir/$src\"" > "~/$conf"
+  echo "setting up $repo"
+  if [ ! -d ~/$dir ]; then
+    git clone --recursive git@github.com:pghalliday-dotfiles/${repo}.git ~/$dir
   else
-    cd "~/$dir"
+    cd ~/$dir
     git pull && git submodule init && git submodule update && git submodule status
   fi
+  echo "source ~/$dir/$src" > ~/$conf
 }
 
 clone_or_pull \
