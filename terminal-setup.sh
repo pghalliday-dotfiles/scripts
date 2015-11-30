@@ -22,7 +22,7 @@ clone_or_pull \
 clone_or_pull \
   tmux \
   .tmux \
-  .tmus.conf \
+  .tmux.conf \
   config.conf
 
 clone_or_pull \
