@@ -18,3 +18,10 @@ clone_or_pull \
   .vim \
   .vimrc \
   config.vim
+
+clone_or_pull \
+  git \
+  .gitconfig.d \
+  .gitconfig \
+  "" \
+  conf/gitconfig

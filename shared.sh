@@ -1,3 +1,5 @@
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
 if [ "$1" == "HTTPS" ]; then
   GIT_PREFIX=https://github.com/
 else
@@ -9,6 +11,7 @@ function clone_or_pull {
   dir=$2
   conf=$3
   src=$4
+  conf_contents=$5
   echo "setting up $repo"
   if [ ! -d ~/$dir ]; then
     git clone --recursive ${GIT_PREFIX}pghalliday-dotfiles/${repo}.git ~/$dir
@@ -17,6 +20,10 @@ function clone_or_pull {
     git pull && git submodule init && git submodule update && git submodule status
   fi
   if [ -n "$conf" ]; then
-    echo "source ~/$dir/$src" > ~/$conf
+    if [ -n "$conf_contents" ]; then
+      cp -f $DIR/$conf_contents ~/$conf
+    else
+      echo "source ~/$dir/$src" > ~/$conf
+    fi
   fi
 }
