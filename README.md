@@ -1,6 +1,6 @@
 # scripts
 
 ```
-./terminal-setup.sh
-./xmonad-setup.sh
+./terminal-setup.sh [HTTPS]
+./xmonad-setup.sh [HTTPS]
 ```
