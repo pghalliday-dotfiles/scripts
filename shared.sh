@@ -9,7 +9,7 @@ function clone_or_pull {
   if [ ! -d ~/$repo ]; then
     echo "cloning $repo"
     cd ~
-    git clone --recursive ${GIT_PREFIX}pghalliday-dotfiles/${repo}.git
+    git -o StrictHostKeyChecking=no clone --recursive ${GIT_PREFIX}pghalliday-dotfiles/${repo}.git
   else
     echo "updating $repo"
     cd ~/$repo
